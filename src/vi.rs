@@ -4,6 +4,7 @@ pub mod horizontal_sync;
 pub mod horizontal_video;
 pub mod interface_type;
 pub mod vertical_video;
+pub mod video_mode;
 pub mod video_scale;
 pub mod video_settings;
 pub mod video_timing;
@@ -16,6 +17,7 @@ use self::color_burst::ColorBurst;
 use self::horizontal_sync::HorizontalSync;
 use self::horizontal_video::HorizontalVideo;
 use self::vertical_video::VerticalVideo;
+use self::video_mode::VideoMode;
 use self::video_scale::VideoScale;
 use self::video_settings::VideoSettings;
 use self::video_timing::VideoTiming;
@@ -210,4 +212,9 @@ pub fn get_vertical_scale() -> VideoScale {
 /// * `scale` - The new video scale.
 pub fn set_vertical_scale(scale: VideoScale) {
     io::write(VI_Y_SCALE_REG, scale.into())
+}
+
+/// Gets the system's video mode.
+pub fn get_video_mode() -> VideoMode {
+    VideoMode::from(io::read(VIDEO_MODE))
 }

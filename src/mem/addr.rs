@@ -15,6 +15,8 @@ pub const VI_V_BURST_REG: *mut u32 = (VI_BASE + 0x2C) as *mut u32;
 pub const VI_X_SCALE_REG: *mut u32 = (VI_BASE + 0x30) as *mut u32;
 pub const VI_Y_SCALE_REG: *mut u32 = (VI_BASE + 0x34) as *mut u32;
 
+pub const VIDEO_MODE: *const u32 = 0x8000_0000 as *const u32;
+
 #[allow(dead_code)]
 mod unused {
     pub const RDRAM_0: usize = 0x0000_0000;
