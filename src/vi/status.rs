@@ -29,7 +29,7 @@ impl Into<u32> for Status {
     fn into(self) -> u32 {
         let interface_type: u32 = self.interface_type.into();
         let anti_aliasing_mode: u32 = self.anti_aliasing_mode.into();
-        0b0000_0000_0000_0000_u32
+        0x0000
             | interface_type
             | bytes::from_bool(2, self.is_gamma_dithering_enabled)
             | bytes::from_bool(3, self.is_gamma_enabled)

@@ -34,3 +34,11 @@ pub fn get_vertical_interrupt() -> u32 {
 pub fn set_vertical_interrupt(interrupt: u32) {
     io::write(VI_V_INTR_REG, interrupt);
 }
+
+pub fn get_current_halfline() -> u32 {
+    io::read(VI_V_CURRENT_LINE_REG)
+}
+
+pub fn clear_vertical_interrupt() {
+    io::write(VI_V_CURRENT_LINE_REG, 0x0000);
+}
