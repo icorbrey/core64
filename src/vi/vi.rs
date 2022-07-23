@@ -26,3 +26,11 @@ pub fn get_frame_buffer_line_width() -> u32 {
 pub fn set_frame_buffer_line_width(pixels: u32) {
     io::write(VI_H_WIDTH_REG, pixels);
 }
+
+pub fn get_vertical_interrupt() -> u32 {
+    io::read(VI_V_INTR_REG)
+}
+
+pub fn set_vertical_interrupt(interrupt: u32) {
+    io::write(VI_V_INTR_REG, interrupt);
+}
