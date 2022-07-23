@@ -51,3 +51,11 @@ pub fn get_video_timing() -> VideoTiming {
 pub fn set_video_timing(video_timing: VideoTiming) {
     io::write(VI_TIMING_REG, video_timing.into())
 }
+
+pub fn get_vertical_sync() -> u32 {
+    io::read(VI_V_SYNC_REG)
+}
+
+pub fn set_vertical_sync(vertical_sync: u32) {
+    io::write(VI_V_SYNC_REG, vertical_sync);
+}
