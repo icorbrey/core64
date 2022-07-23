@@ -3,6 +3,7 @@ use crate::mem::io;
 use crate::utils::bytes;
 
 use super::horizontal_sync::HorizontalSync;
+use super::horizontal_video::HorizontalVideo;
 use super::status::Status;
 use super::video_timing::VideoTiming;
 
@@ -79,4 +80,12 @@ pub fn set_horizontal_sync_leap(horizontal_sync_leap: u32) {
         VI_H_SYNC_LEAP_REG,
         bytes::from_u32(0, 12, horizontal_sync_leap),
     );
+}
+
+pub fn get_horizontal_video_data() -> HorizontalVideo {
+    HorizontalVideo::from(io::read(VI_H_VIDEO_REG))
+}
+
+pub fn set_horizontal_video_data(video_data: HorizontalVideo) {
+    io::write(VI_H_VIDEO_REG, video_data.into());
 }
