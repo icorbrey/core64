@@ -1,3 +1,5 @@
+use crate::utils::bytes;
+
 pub struct VideoScale {
     scale_factor: u32,
     subpixel_offset: u32,
