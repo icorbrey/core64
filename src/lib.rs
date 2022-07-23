@@ -1,4 +1,4 @@
 mod mem;
-mod utils;
 
+pub mod utils;
 pub mod vi;
