@@ -27,8 +27,8 @@ pub fn get_frame_buffer_line_width() -> u32 {
     bytes::to_u32(0, 11, io::read(VI_H_WIDTH_REG))
 }
 
-pub fn set_frame_buffer_line_width(pixels: u32) {
-    io::write(VI_H_WIDTH_REG, bytes::from_u32(0, 11, pixels));
+pub fn set_frame_buffer_line_width(line_width: u32) {
+    io::write(VI_H_WIDTH_REG, bytes::from_u32(0, 11, line_width));
 }
 
 pub fn get_vertical_interrupt() -> u32 {
@@ -59,27 +59,24 @@ pub fn get_vertical_sync() -> u32 {
     bytes::to_u32(0, 9, io::read(VI_V_SYNC_REG))
 }
 
-pub fn set_vertical_sync(vertical_sync: u32) {
-    io::write(VI_V_SYNC_REG, bytes::from_u32(0, 9, vertical_sync));
+pub fn set_vertical_sync(sync: u32) {
+    io::write(VI_V_SYNC_REG, bytes::from_u32(0, 9, sync));
 }
 
 pub fn get_horizontal_sync() -> HorizontalSync {
     HorizontalSync::from(io::read(VI_H_SYNC_REG))
 }
 
-pub fn set_horizontal_sync(horizontal_sync: HorizontalSync) {
-    io::write(VI_H_SYNC_REG, horizontal_sync.into());
+pub fn set_horizontal_sync(sync: HorizontalSync) {
+    io::write(VI_H_SYNC_REG, sync.into());
 }
 
 pub fn get_horizontal_sync_leap() -> u32 {
     bytes::to_u32(0, 12, io::read(VI_H_SYNC_LEAP_REG))
 }
 
-pub fn set_horizontal_sync_leap(horizontal_sync_leap: u32) {
-    io::write(
-        VI_H_SYNC_LEAP_REG,
-        bytes::from_u32(0, 12, horizontal_sync_leap),
-    );
+pub fn set_horizontal_sync_leap(sync_leap: u32) {
+    io::write(VI_H_SYNC_LEAP_REG, bytes::from_u32(0, 12, sync_leap));
 }
 
 pub fn get_horizontal_video_data() -> HorizontalVideo {
