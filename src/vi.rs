@@ -1,14 +1,24 @@
+pub mod anti_aliasing_mode;
+pub mod color_burst;
+pub mod horizontal_sync;
+pub mod horizontal_video;
+pub mod interface_type;
+pub mod vertical_video;
+pub mod video_scale;
+pub mod video_settings;
+pub mod video_timing;
+
 use crate::mem::addr::*;
 use crate::mem::io;
 use crate::utils::bytes;
 
-use super::color_burst::ColorBurst;
-use super::horizontal_sync::HorizontalSync;
-use super::horizontal_video::HorizontalVideo;
-use super::vertical_video::VerticalVideo;
-use super::video_scale::VideoScale;
-use super::video_settings::VideoSettings;
-use super::video_timing::VideoTiming;
+use color_burst::ColorBurst;
+use horizontal_sync::HorizontalSync;
+use horizontal_video::HorizontalVideo;
+use vertical_video::VerticalVideo;
+use video_scale::VideoScale;
+use video_settings::VideoSettings;
+use video_timing::VideoTiming;
 
 /// Gets the system's video settings.
 pub fn get_video_settings() -> VideoSettings {
