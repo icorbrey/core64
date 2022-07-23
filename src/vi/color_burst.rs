@@ -2,10 +2,10 @@ use crate::utils::bytes;
 
 pub struct ColorBurst {
     /// End of color burst, measured in half-lines.
-    color_burst_end: u32,
+    pub color_burst_end: u32,
 
     /// Start of color-burst, measured in half-lines.
-    color_burst_start: u32,
+    pub color_burst_start: u32,
 }
 
 impl From<u32> for ColorBurst {

@@ -5,24 +5,24 @@ use super::interface_type::InterfaceType;
 
 pub struct VideoSettings {
     /// The system's video interface type.
-    interface_type: InterfaceType,
+    pub interface_type: InterfaceType,
 
     /// Whether gamma dithering is enabled. Normally `true`, unless in
     /// "special effect" mode.
-    is_gamma_dithering_enabled: bool,
+    pub is_gamma_dithering_enabled: bool,
 
     /// Whether gamma is enabled. Normally `true`, unless on MPEG/JPEG.
-    is_gamma_enabled: bool,
+    pub is_gamma_enabled: bool,
 
     /// Whether divot is enabled. Normally `true` if anti-aliasing is on, unless
     /// decal lines are on.
-    is_divot_enabled: bool,
+    pub is_divot_enabled: bool,
 
     /// Whether the video interface is interlaced.
-    is_interlaced: bool,
+    pub is_interlaced: bool,
 
     /// The system's anti-aliasing mode.
-    anti_aliasing_mode: AntiAliasingMode,
+    pub anti_aliasing_mode: AntiAliasingMode,
 }
 
 impl From<u32> for VideoSettings {

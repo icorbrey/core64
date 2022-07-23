@@ -2,10 +2,10 @@ use crate::utils::bytes;
 
 pub struct VideoScale {
     /// Inverse of decimal scale factor.
-    scale_factor: u32,
+    pub scale_factor: u32,
 
     /// Subpixel offset.
-    subpixel_offset: u32,
+    pub subpixel_offset: u32,
 }
 
 impl From<u32> for VideoScale {

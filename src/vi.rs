@@ -37,8 +37,8 @@ pub fn set_video_settings(settings: VideoSettings) {
 }
 
 /// Gets the current frame buffer's address from DRAM.
-pub fn get_frame_buffer_address() -> u32 {
-    bytes::to_u32(0, 24, io::read(VI_DRAM_ADDR_REG))
+pub fn get_frame_buffer_address() -> usize {
+    bytes::to_u32(0, 24, io::read(VI_DRAM_ADDR_REG)) as usize
 }
 
 /// Assigns a new frame buffer's address tp DRAM.
@@ -46,8 +46,8 @@ pub fn get_frame_buffer_address() -> u32 {
 /// ## Arguments
 ///
 /// * `address` - The new frame buffer's address.
-pub fn set_frame_buffer_address(address: u32) {
-    io::write(VI_DRAM_ADDR_REG, bytes::from_u32(0, 24, address));
+pub fn set_frame_buffer_address(address: usize) {
+    io::write(VI_DRAM_ADDR_REG, bytes::from_u32(0, 24, address as u32));
 }
 
 /// Gets the frame buffer's line width in pixels.
