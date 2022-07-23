@@ -1,6 +1,7 @@
 mod vi;
 
 pub mod anti_aliasing_mode;
+pub mod color_burst;
 pub mod horizontal_sync;
 pub mod horizontal_video;
 pub mod interface_type;

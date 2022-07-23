@@ -2,6 +2,7 @@ use crate::mem::addr::*;
 use crate::mem::io;
 use crate::utils::bytes;
 
+use super::color_burst::ColorBurst;
 use super::horizontal_sync::HorizontalSync;
 use super::horizontal_video::HorizontalVideo;
 use super::status::Status;
@@ -94,4 +95,12 @@ pub fn get_vertical_video_data() -> VerticalVideo {
 
 pub fn set_vertical_video_data(video_data: VerticalVideo) {
     io::write(VI_V_VIDEO_REG, video_data.into())
+}
+
+pub fn get_color_burst_data() -> ColorBurst {
+    ColorBurst::from(io::read(VI_V_BURST_REG))
+}
+
+pub fn set_color_burst_data(burst_data: ColorBurst) {
+    io::write(VI_V_BURST_REG, burst_data.into())
 }
