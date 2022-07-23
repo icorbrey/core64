@@ -1,11 +1,11 @@
 pub fn to_u32(i: u32, len: u32, val: u32) -> u32 {
-    let offset: u32 = 16 - i - len;
+    let offset: u32 = 32 - i - len;
     let mask: u32 = 2_u32.pow(len) - 1;
     (val & (mask << offset)) >> offset
 }
 
 pub fn from_u32(i: u32, len: u32, val: u32) -> u32 {
-    val << (16 - i - len)
+    val << (32 - i - len)
 }
 
 pub fn to_bool(i: u32, val: u32) -> bool {

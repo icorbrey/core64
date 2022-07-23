@@ -2,6 +2,7 @@ use crate::mem::addr::*;
 use crate::mem::io;
 
 use super::status::Status;
+use super::video_timing::VideoTiming;
 
 pub fn get_status() -> Status {
     Status::from(io::read(VI_STATUS_REG))
@@ -41,4 +42,12 @@ pub fn get_current_halfline() -> u32 {
 
 pub fn clear_vertical_interrupt() {
     io::write(VI_V_CURRENT_LINE_REG, 0x0000);
+}
+
+pub fn get_video_timing() -> VideoTiming {
+    VideoTiming::from(io::read(VI_TIMING_REG))
+}
+
+pub fn set_video_timing(video_timing: VideoTiming) {
+    io::write(VI_TIMING_REG, video_timing.into())
 }
