@@ -67,3 +67,11 @@ pub fn get_horizontal_sync() -> u32 {
 pub fn set_horizontal_sync(horizontal_sync: u32) {
     io::write(VI_H_SYNC_REG, horizontal_sync);
 }
+
+pub fn get_horizontal_sync_leap() -> u32 {
+    io::read(VI_H_SYNC_LEAP_REG)
+}
+
+pub fn set_horizontal_sync_leap(horizontal_sync_leap: u32) {
+    io::write(VI_H_SYNC_LEAP_REG, horizontal_sync_leap);
+}
