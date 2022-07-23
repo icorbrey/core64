@@ -7,6 +7,7 @@ use super::horizontal_sync::HorizontalSync;
 use super::horizontal_video::HorizontalVideo;
 use super::status::Status;
 use super::vertical_video::VerticalVideo;
+use super::video_scale::VideoScale;
 use super::video_timing::VideoTiming;
 
 pub fn get_status() -> Status {
@@ -103,4 +104,20 @@ pub fn get_color_burst_data() -> ColorBurst {
 
 pub fn set_color_burst_data(burst_data: ColorBurst) {
     io::write(VI_V_BURST_REG, burst_data.into())
+}
+
+pub fn get_horizontal_scale() -> VideoScale {
+    VideoScale::from(io::read(VI_X_SCALE_REG))
+}
+
+pub fn set_horizontal_scale(scale: VideoScale) {
+    io::write(VI_X_SCALE_REG, scale.into())
+}
+
+pub fn get_vertical_scale() -> VideoScale {
+    VideoScale::from(io::read(VI_Y_SCALE_REG))
+}
+
+pub fn set_vertical_scale(scale: VideoScale) {
+    io::write(VI_Y_SCALE_REG, scale.into())
 }
