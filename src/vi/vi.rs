@@ -18,3 +18,11 @@ pub fn get_dram_address() -> u32 {
 pub fn set_dram_address(address: u32) {
     io::write(VI_DRAM_ADDR_REG, address);
 }
+
+pub fn get_frame_buffer_line_width() -> u32 {
+    io::read(VI_H_WIDTH_REG)
+}
+
+pub fn set_frame_buffer_line_width(pixels: u32) {
+    io::write(VI_H_WIDTH_REG, pixels);
+}

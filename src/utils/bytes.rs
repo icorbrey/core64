@@ -1,6 +1,6 @@
 pub fn to_u32(i: u32, len: u32, val: u32) -> u32 {
-    let offset = 16 - i - len;
-    let mask = 2_u32.pow(len) - 1;
+    let offset: u32 = 16 - i - len;
+    let mask: u32 = 2_u32.pow(len) - 1;
     (val & (mask << offset)) >> offset
 }
 
