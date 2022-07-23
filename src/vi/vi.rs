@@ -5,6 +5,7 @@ use crate::utils::bytes;
 use super::horizontal_sync::HorizontalSync;
 use super::horizontal_video::HorizontalVideo;
 use super::status::Status;
+use super::vertical_video::VerticalVideo;
 use super::video_timing::VideoTiming;
 
 pub fn get_status() -> Status {
@@ -85,4 +86,12 @@ pub fn get_horizontal_video_data() -> HorizontalVideo {
 
 pub fn set_horizontal_video_data(video_data: HorizontalVideo) {
     io::write(VI_H_VIDEO_REG, video_data.into());
+}
+
+pub fn get_vertical_video_data() -> VerticalVideo {
+    VerticalVideo::from(io::read(VI_V_VIDEO_REG))
+}
+
+pub fn set_vertical_video_data(video_data: VerticalVideo) {
+    io::write(VI_V_VIDEO_REG, video_data.into())
 }

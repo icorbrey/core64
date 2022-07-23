@@ -5,6 +5,7 @@ pub mod horizontal_sync;
 pub mod horizontal_video;
 pub mod interface_type;
 pub mod status;
+pub mod vertical_video;
 pub mod video_timing;
 
 pub use vi::*;
