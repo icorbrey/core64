@@ -1,7 +1,10 @@
 use crate::utils::bytes;
 
 pub struct HorizontalSync {
+    /// Total duration of a line, measured in quarter-pixels.
     total_line_duration: u32,
+
+    /// 5-bit leap pattern, used for PAL systems only.
     pal_leap_pattern: u32,
 }
 

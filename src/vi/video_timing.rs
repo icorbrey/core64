@@ -1,9 +1,16 @@
 use crate::utils::bytes;
 
 pub struct VideoTiming {
+    /// Horizontal sync width, measured in pixels.
     horizontal_sync_width: u32,
+
+    /// Color burst width, measured in pixels.
     color_burst_width: u32,
+
+    /// Vertical sync width, measured in half-lines.
     vertical_sync_width: u32,
+
+    /// Start of color burst, measured in pixels from H-sync.
     color_burst_offset: u32,
 }
 

@@ -1,7 +1,10 @@
 use crate::utils::bytes;
 
 pub struct VerticalVideo {
+    /// End of active vertical video, measured in screen half-lines.
     active_range_end: u32,
+
+    /// Start of active vertical video, measured in screen half-lines.
     active_range_start: u32,
 }
 

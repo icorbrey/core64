@@ -1,7 +1,10 @@
 use crate::utils::bytes;
 
 pub struct VideoScale {
+    /// Inverse of decimal scale factor.
     scale_factor: u32,
+
+    /// Subpixel offset.
     subpixel_offset: u32,
 }
 

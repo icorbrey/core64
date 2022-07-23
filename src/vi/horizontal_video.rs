@@ -1,7 +1,10 @@
 use crate::utils::bytes;
 
 pub struct HorizontalVideo {
+    /// End of active horizontal video, measured in screen pixels.
     active_range_end: u32,
+
+    /// Start of active horizontal video, measured in screen pixels.
     active_range_start: u32,
 }
 

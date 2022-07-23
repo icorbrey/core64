@@ -1,7 +1,14 @@
 pub enum AntiAliasingMode {
+    /// Anti-aliasing and resampling. Always fetches extra lines.
     AlwaysFetchLines,
+
+    /// Anti-aliasing and resampling. Only fetches extra lines when necessary.
     FetchLinesWhenNeeded,
+
+    /// Resampling only. Treat all lines as fully covered.
     ResampleOnly,
+
+    /// No anti-aliasing nor resampling. Replicates pixels, no interpolation.
     None,
 }
 

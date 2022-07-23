@@ -1,6 +1,11 @@
 pub enum InterfaceType {
+    /// No data, no syncing.
     Blank,
+
+    /// 5/5/5/3 video interface.
     SixteenBit,
+
+    /// 8/8/8/8 video interface.
     ThirtyTwoBit,
 }
 
