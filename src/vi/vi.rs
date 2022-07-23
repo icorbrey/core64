@@ -59,3 +59,11 @@ pub fn get_vertical_sync() -> u32 {
 pub fn set_vertical_sync(vertical_sync: u32) {
     io::write(VI_V_SYNC_REG, vertical_sync);
 }
+
+pub fn get_horizontal_sync() -> u32 {
+    io::read(VI_H_SYNC_REG)
+}
+
+pub fn set_horizontal_sync(horizontal_sync: u32) {
+    io::write(VI_H_SYNC_REG, horizontal_sync);
+}
