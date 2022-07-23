@@ -1,5 +1,3 @@
-use crate::utils::bytes;
-
 pub enum InterfaceType {
     Blank,
     SixteenBit,
@@ -8,7 +6,7 @@ pub enum InterfaceType {
 
 impl From<u32> for InterfaceType {
     fn from(val: u32) -> Self {
-        match bytes::from_u32(0, 2, val) {
+        match val {
             2 => Self::SixteenBit,
             3 => Self::ThirtyTwoBit,
             _ => Self::Blank,
@@ -18,11 +16,10 @@ impl From<u32> for InterfaceType {
 
 impl Into<u32> for InterfaceType {
     fn into(self) -> u32 {
-        let interface_type: u32 = match self {
+        match self {
             Self::Blank => 0,
             Self::SixteenBit => 2,
             Self::ThirtyTwoBit => 3,
-        };
-        bytes::from_u32(0, 2, interface_type)
+        }
     }
 }

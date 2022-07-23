@@ -13,28 +13,26 @@ pub struct Status {
 }
 
 impl From<u32> for Status {
-    fn from(value: u32) -> Self {
+    fn from(val: u32) -> Self {
         Self {
-            interface_type: InterfaceType::from(value),
-            is_gamma_dithering_enabled: bytes::to_bool(2, value),
-            is_gamma_enabled: bytes::to_bool(3, value),
-            is_divot_enabled: bytes::to_bool(4, value),
-            is_serrated: bytes::to_bool(6, value),
-            anti_aliasing_mode: AntiAliasingMode::from(value),
+            interface_type: InterfaceType::from(bytes::to_u32(0, 2, val)),
+            is_gamma_dithering_enabled: bytes::to_bool(2, val),
+            is_gamma_enabled: bytes::to_bool(3, val),
+            is_divot_enabled: bytes::to_bool(4, val),
+            is_serrated: bytes::to_bool(6, val),
+            anti_aliasing_mode: AntiAliasingMode::from(bytes::to_u32(8, 2, val)),
         }
     }
 }
 
 impl Into<u32> for Status {
     fn into(self) -> u32 {
-        let interface_type: u32 = self.interface_type.into();
-        let anti_aliasing_mode: u32 = self.anti_aliasing_mode.into();
         0x0000
-            | interface_type
+            | bytes::from_u32(0, 2, self.interface_type.into())
             | bytes::from_bool(2, self.is_gamma_dithering_enabled)
             | bytes::from_bool(3, self.is_gamma_enabled)
             | bytes::from_bool(4, self.is_divot_enabled)
             | bytes::from_bool(6, self.is_serrated)
-            | anti_aliasing_mode
+            | bytes::from_u32(8, 2, self.anti_aliasing_mode.into())
     }
 }
